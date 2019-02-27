@@ -68,7 +68,9 @@ bool SplayTree::insert(int key) {
 
     node* newRoot = createNode(key);
     newRoot->left = treePair.first.getRoot();
+    newRoot->left->parent = newRoot;
     newRoot->right = treePair.second.getRoot();
+    newRoot->right->parent = newRoot;
     this->root = newRoot;
     return true;
   }
