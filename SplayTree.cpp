@@ -68,9 +68,21 @@ bool SplayTree::insert(int key) {
 
     node* newRoot = createNode(key);
     newRoot->left = treePair.first.getRoot();
-    newRoot->left->parent = newRoot;
+    if (newRoot->left) {
+      cout << "setting parent to left" << endl;
+      newRoot->left->parent = newRoot;
+      cout << "set parent to left" << endl;
+
+    }
+    
     newRoot->right = treePair.second.getRoot();
-    newRoot->right->parent = newRoot;
+    if (newRoot->right) {
+      cout << "setting parent to right" << endl;
+      newRoot->right->parent = newRoot;
+      cout << "set parent to right" << endl;
+
+    }
+
     this->root = newRoot;
     return true;
   }
